@@ -3,7 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <header>
-      <div>
+      <div className="logo">
+        <i class="las la-gamepad"></i>
         <h1>
           <Link to="/">GameOver</Link>
         </h1>
