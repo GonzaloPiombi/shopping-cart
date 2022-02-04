@@ -14,11 +14,9 @@ const Header = (props) => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/shop">Shop</NavLink>
           <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/shop">
+          <NavLink to="/shop" onClick={props.openCart}>
             <i className="las la-shopping-cart"></i>
-            <p onClick={props.openCart} className="cart-amount">
-              {props.cartAmount}
-            </p>
+            <p className="cart-amount">{props.cartAmount}</p>
           </NavLink>
         </ul>
       </nav>
