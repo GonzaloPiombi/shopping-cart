@@ -28,6 +28,7 @@ function App() {
       'https://fakestoreapi.com/products/category/electronics'
     );
     const items = await data.json();
+    console.log(items);
     return setProducts(items);
   };
 
@@ -58,7 +59,11 @@ function App() {
           />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-        <Cart items={cartItems} isCartOpen={isCartOpen} />
+        <Cart
+          items={cartItems}
+          isCartOpen={isCartOpen}
+          closeCart={changeCartStatus}
+        />
       </div>
     </BrowserRouter>
   );
