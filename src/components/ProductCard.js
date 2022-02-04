@@ -31,7 +31,12 @@ const ProductCard = (props) => {
           <p>{amount}</p>
           <button onClick={handleIncrement}>+</button>
         </div>
-        <button className="add-to-cart">Add to Cart</button>
+        <button
+          className="add-to-cart"
+          onClick={() => props.addToCart(amount, props.product)}
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );

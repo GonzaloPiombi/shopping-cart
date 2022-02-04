@@ -1,10 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <div className="logo">
-        <i class="las la-gamepad"></i>
+        <i className="logo-icon las la-gamepad"></i>
         <h1>
           <Link to="/">GameOver</Link>
         </h1>
@@ -14,6 +14,12 @@ const Header = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/shop">Shop</NavLink>
           <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/shop">
+            <i className="las la-shopping-cart"></i>
+            <p onClick={props.openCart} className="cart-amount">
+              {props.cartAmount}
+            </p>
+          </NavLink>
         </ul>
       </nav>
     </header>

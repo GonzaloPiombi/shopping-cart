@@ -5,7 +5,13 @@ const Shop = (props) => {
     <section>
       <div className="grid-shop">
         {props.products.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
+          return (
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={props.addToCart}
+            />
+          );
         })}
       </div>
     </section>

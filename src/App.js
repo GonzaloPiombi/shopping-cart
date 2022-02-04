@@ -5,9 +5,13 @@ import './styles.css';
 import Home from './components/Home';
 import Shop from './components/Shop';
 import Contact from './components/Contact';
+import Cart from './components/Cart';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cartAmount, setCartAmount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     let cancel = false;
@@ -24,19 +28,37 @@ function App() {
       'https://fakestoreapi.com/products/category/electronics'
     );
     const items = await data.json();
-    console.log(items);
     return setProducts(items);
+  };
+
+  const addToCart = (amount, product) => {
+    setCartAmount(cartAmount + amount);
+    const cartItemIndex = cartItems.findIndex((item) => item.id === product.id);
+    if (cartItemIndex !== -1) {
+      const newArr = [...cartItems];
+      newArr[cartItemIndex].quantity += amount;
+      return setCartItems(newArr);
+    }
+    setCartItems(cartItems.concat({ ...product, quantity: amount }));
+  };
+
+  const changeCartStatus = () => {
+    setIsCartOpen(!isCartOpen);
   };
 
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header cartAmount={cartAmount} openCart={changeCartStatus} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop products={products} />} />
+          <Route
+            path="/shop"
+            element={<Shop products={products} addToCart={addToCart} />}
+          />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Cart items={cartItems} isCartOpen={isCartOpen} />
       </div>
     </BrowserRouter>
   );
