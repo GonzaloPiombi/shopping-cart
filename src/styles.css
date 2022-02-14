@@ -20,10 +20,6 @@ header {
   max-height: 80px;
 }
 
-header h1 {
-  font-family: 'Russo One', sans-serif;
-}
-
 nav {
   width: 45%;
 }
@@ -64,6 +60,7 @@ section > div {
 
 .logo h1 {
   font-size: 3rem;
+  font-family: 'Russo One', sans-serif;
 }
 
 .home {
@@ -256,6 +253,7 @@ section > div {
   justify-content: center;
   align-items: center;
   outline: none;
+  padding: 0;
 }
 
 .cart {
@@ -368,4 +366,92 @@ section > div {
 
 .cart-buttons button:hover:nth-child(3) {
   background-color: #c52d2d;
+}
+
+@media (max-width: 1300px) {
+  header {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  nav {
+    padding-bottom: 1%;
+    width: 100%;
+  }
+
+  .grid-shop {
+    grid-template-columns: repeat(2, 350px);
+  }
+
+  .counter p {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+@media (max-width: 850px) {
+  .contact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-shop {
+    grid-template-columns: 350px;
+  }
+
+  .counter p {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo h1 {
+    font-size: 2.5rem;
+  }
+
+  .logo-icon {
+    font-size: 3.5rem;
+  }
+
+  ul {
+    font-size: 1.5rem;
+  }
+
+  .home h1 {
+    font-size: 3rem;
+  }
+
+  .home button {
+    font-size: 2rem;
+    padding: 5% 10%;
+  }
+
+  .grid-shop {
+    grid-template-columns: 250px;
+  }
+
+  .product-container {
+    height: 24rem;
+  }
+
+  .cart {
+    width: 250px;
+  }
+
+  .cart h1 {
+    font-size: 2.5rem;
+  }
+
+  .cart-item {
+    height: 6rem;
+  }
+
+  .cart-image {
+    height: 70%;
+  }
+
+  .lab {
+    font-size: 6rem;
+  }
 }
