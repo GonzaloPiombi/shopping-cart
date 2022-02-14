@@ -1,4 +1,27 @@
 const Cart = (props) => {
+  const closeAnimation = (cart, modal) => {
+    cart.animate([{ right: '0' }, { right: '-50%' }], {
+      duration: 500,
+      iterations: 1,
+      easing: 'ease-in',
+    });
+    modal.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration: 500,
+      iterations: 1,
+      easing: 'ease-in-out',
+    });
+  };
+
+  const handleClose = () => {
+    closeAnimation(
+      document.querySelector('.cart'),
+      document.querySelector('.modal')
+    );
+    setTimeout(() => {
+      props.closeCart();
+    }, 500);
+  };
+
   if (props.isCartOpen) {
     return (
       <div>
@@ -32,10 +55,10 @@ const Cart = (props) => {
               }, 0)}
             </h1>
             <button>Check Out</button>
-            <button onClick={props.closeCart}>Close Cart</button>
+            <button onClick={handleClose}>Close Cart</button>
           </div>
         </div>
-        <div className="modal" onClick={props.closeCart}></div>
+        <div className="modal" onClick={handleClose}></div>
       </div>
     );
   }
