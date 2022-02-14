@@ -61,7 +61,7 @@ function App() {
       <div className="App">
         <Header cartAmount={cartAmount} openCart={changeCartStatus} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/shopping-cart" element={<Home />} />
           <Route
             path="/shop"
             element={

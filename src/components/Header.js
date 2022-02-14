@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = (props) => {
   return (
     <header>
-      <Link to="/">
+      <Link to="/shopping-cart">
         <div className="logo">
           <i className="logo-icon las la-gamepad"></i>
           <h1>GameOver</h1>
@@ -11,7 +11,7 @@ const Header = (props) => {
       </Link>
       <nav>
         <ul>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/shopping-cart">Home</NavLink>
           <NavLink to="/shop">Shop</NavLink>
           <NavLink to="/contact">Contact</NavLink>
           <button className="cart-icon" onClick={props.openCart}>
