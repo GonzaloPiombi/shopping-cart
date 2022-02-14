@@ -3,12 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = (props) => {
   return (
     <header>
-      <div className="logo">
-        <i className="logo-icon las la-gamepad"></i>
-        <h1>
-          <Link to="/">GameOver</Link>
-        </h1>
-      </div>
+      <Link to="/">
+        <div className="logo">
+          <i className="logo-icon las la-gamepad"></i>
+          <h1>GameOver</h1>
+        </div>
+      </Link>
       <nav>
         <ul>
           <NavLink to="/">Home</NavLink>
