@@ -12,6 +12,7 @@ function App() {
   const [cartAmount, setCartAmount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let cancel = false;
@@ -28,8 +29,8 @@ function App() {
       'https://fakestoreapi.com/products/category/electronics'
     );
     const items = await data.json();
-    console.log(items);
-    return setProducts(items);
+    setProducts(items);
+    return setIsLoading(false);
   };
 
   const addToCart = (amount, product) => {
@@ -63,7 +64,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/shop"
-            element={<Shop products={products} addToCart={addToCart} />}
+            element={
+              <Shop
+                products={products}
+                addToCart={addToCart}
+                isLoading={isLoading}
+              />
+            }
           />
           <Route path="/contact" element={<Contact />} />
         </Routes>

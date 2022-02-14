@@ -128,6 +128,13 @@ section > div {
   transform: scale(1.2);
 }
 
+.loader {
+  color: white;
+  font-size: 4rem;
+  margin-top: 5%;
+  text-align: center;
+}
+
 .grid-shop {
   display: grid;
   grid-template-columns: repeat(3, 350px);
