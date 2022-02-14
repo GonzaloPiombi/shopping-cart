@@ -312,6 +312,17 @@ section > div {
   height: 90%;
 }
 
+.delete-item-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: relative;
+  top: -35px;
+}
+
+.delete-item-icon:hover {
+  color: #c52d2d;
+}
+
 .modal {
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
@@ -441,10 +452,6 @@ section > div {
 
   .cart h1 {
     font-size: 2.5rem;
-  }
-
-  .cart-item {
-    height: 6rem;
   }
 
   .cart-image {
