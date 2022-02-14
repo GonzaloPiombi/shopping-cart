@@ -43,6 +43,12 @@ const Cart = (props) => {
                     <p>${item.price * item.quantity}</p>
                     <p>{item.quantity}</p>
                   </div>
+                  <div>
+                    <i
+                      className="delete-item-icon las la-trash-alt"
+                      onClick={() => props.deleteItem(item)}
+                    ></i>
+                  </div>
                 </div>
               );
             })}

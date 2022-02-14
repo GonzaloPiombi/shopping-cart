@@ -43,6 +43,14 @@ function App() {
     setCartItems(cartItems.concat({ ...product, quantity: amount }));
   };
 
+  const deleteFromCart = (product) => {
+    const amount = product.quantity;
+    setCartAmount(cartAmount - amount);
+
+    const newArr = [...cartItems].filter((item) => item.id !== product.id);
+    setCartItems(newArr);
+  };
+
   const changeCartStatus = () => {
     setIsCartOpen(!isCartOpen);
   };
@@ -63,6 +71,7 @@ function App() {
           items={cartItems}
           isCartOpen={isCartOpen}
           closeCart={changeCartStatus}
+          deleteItem={deleteFromCart}
         />
       </div>
     </BrowserRouter>
