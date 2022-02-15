@@ -43,6 +43,10 @@ button {
   cursor: pointer;
 }
 
+section {
+  padding-bottom: 8%;
+}
+
 section > div {
   position: relative;
 }
